@@ -25,7 +25,7 @@ SECRET_KEY = '=%7jav99#+(i3t1b+ifdzaskrt7#ou_z@np*a8gsy-fgh#5l5c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.getenv('RENDER_EXTERNAL_HOSTNAME', default=''),('127.0.0.1')]
+ALLOWED_HOSTS = [os.getenv('RENDER_EXTERNAL_HOSTNAME', default=''), ('127.0.0.1')]
 
 
 # Application definition
@@ -120,15 +120,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-                    #,]
-#STATICFILES_FINDERS = [
-#    "django.contrib.staticfiles.finders.FileSystemFinder",
-#    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
